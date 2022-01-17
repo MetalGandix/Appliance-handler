@@ -1,0 +1,29 @@
+.mycard {
+  background: rgb(0,0,0);
+  background: linear-gradient(
+    90deg, rgba(22,28,36,1) 10%, rgba(170,176,184,1) 100%);
+  border: none;
+  border-radius: 20px;
+  color: white;
+}
+
+.brand {
+  margin-left: auto;
+  margin-right: 0;
+  background-color: white;
+  height: 31px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.brand-title {
+  margin-right: 31px;
+}
+
+.mybtn {
+  color: #000;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border-color: #ffffff;
+  float: right;
+}

@@ -1,0 +1,6 @@
+{
+	"appId": "it.ubisive.vismap",
+	"appName": "Vismap",
+	"webDir": "dist/appliance-handler",
+	"bundledWebRuntime": false
+}

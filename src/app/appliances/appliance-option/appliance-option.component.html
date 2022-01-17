@@ -1,0 +1,31 @@
+<div *ngIf="viewModel">
+  <h3><b>Opzioni:</b></h3>
+  <div class="options">
+    <div *ngFor="let option of viewModel.options" class="option" [ngClass]="(option.key == 'BSH.Common.Option.StartInRelative') ? 'mb-4' : ''">
+      <div>
+        <span>{{option.name}} </span><b class="gridSizeValue" *ngIf="option.type != 'Boolean'">{{gridsize.value}} {{option.unit}}</b>
+      </div>
+      <mat-slider #gridsize (change)="updateSetting($event, option.key)" step="5" min="{{option.constraints.min}}" max="{{option.constraints.max}}" [value]="option.constraints.default" [ngClass]="(option.type == 'Boolean' || option.key == 'BSH.Common.Option.StartInRelative' || option.key == 'BSH.Common.Option.Duration') ? 'hide' : 'noHide'"></mat-slider>
+      <mat-slide-toggle (change)="onSwitchChange($event, option.key)" [formControl]="toggle" style="margin-top: 5px;" *ngIf="option.type == 'Boolean'"></mat-slide-toggle>
+      <div class="ngx-timepicker-field-example" *ngIf="option.key == 'BSH.Common.Option.StartInRelative'">
+        <ngx-timepicker-field [format]=24 [(ngModel)]="start"></ngx-timepicker-field>
+      </div>
+      <mat-form-field appearance="outline" *ngIf="option.key == 'BSH.Common.Option.Duration'">
+        <mat-label>Minuti</mat-label>
+        <mat-select msInfiniteScroll>
+          <mat-option *ngFor="let option of minutesOptions" [value]="option" (onSelectionChange)="updateMaxMinutes($event)">{{option}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <button *ngIf="!running" (click)="startProgram()" class="btn btn-success"><i class="fas fa-play"></i></button>
+  <button *ngIf="running" type="button" class="btn btn-danger" (click)="stopCurrentProgram()"><i class="fas fa-stop"></i></button>
+</div>
+
+<!--<div class="default-time-example">
+  <input aria-label="default time" [ngxTimepicker]="defaultValue" [value]="'05:11 pm'"  readonly [(ngModel)]="prova">
+  <ngx-material-timepicker #defaultValue></ngx-material-timepicker>
+</div>-->
+
+
+<!--<p>{{prova}}</p>-->

@@ -1,0 +1,24 @@
+<!--
+<ul>
+  <li *ngFor="let appliance of appliances">
+    {{appliance.name}}
+  </li>
+</ul>
+-->
+<p>Prova</p>
+<div>
+  <div *ngFor="let appliance of appliances" class="card mycard" style="width: 18rem;">
+    <div class="card-body">
+      <span style="display: flex; margin-right: -20px;">
+      <h2 class="card-title" style="color: white">{{appliance.name}}</h2>
+        <div class="brand">
+          <div style="padding-left: 20px;">
+      <h2 class="card-title brand-title">{{appliance.brand}}</h2>
+          </div>
+          </div>
+        </span>
+      <mat-slide-toggle [formControl]="toggle" style="margin-top: 5px;"></mat-slide-toggle>
+      <a [routerLink]="['/appliance', appliance.haId]" class="btn btn-primary mybtn">Dettagli</a>
+    </div>
+  </div>
+</div>

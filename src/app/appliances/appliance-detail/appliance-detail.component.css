@@ -1,0 +1,33 @@
+.myCard {
+  padding: 15px;
+  background: linear-gradient(
+    90deg, rgba(22,28,36,1) 10%, rgba(170,176,184,1) 100%);
+  border-radius: 10px;
+  display: flex;
+}
+
+.myCardBody > * {
+  color: white;
+}
+
+.myCardButton {
+  /*float: right;*/
+  margin-right: 0 !important;
+  margin: auto;
+}
+
+.myCardButton > button {
+  border-radius: 10px !important;
+}
+
+.program-choose {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.programs {
+  /*display: flex;*/
+}

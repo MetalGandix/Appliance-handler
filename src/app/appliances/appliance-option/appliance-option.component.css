@@ -1,0 +1,12 @@
+.options {
+  justify-content: space-between;
+}
+
+.option {
+  margin-bottom: 10px;
+}
+
+.hide {
+  display: none;
+}
+

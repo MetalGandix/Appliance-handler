@@ -1,0 +1,50 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null" style="background-color: #161c24;">
+    <div class="sidebar-logo">
+      <a routerLink="/">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>Appliances Handler</h1>
+      </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed"
+        *ngIf="this.isAuth">
+      <li nz-submenu nzOpen nzTitle="Appliances" nzIcon="home">
+        <ul>
+          <li *ngFor="let appliance of appliances" nz-menu-item nzMatchRouter>
+            {{appliance.name}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div class="center" *ngIf="!isAuth">
+      <button (click)="onOAuthBtnClick()">Login with OAuth</button>
+      <!-- <a href="https://api.home-connect.com/security/oauth/authorize?client_id=941A49AE931239EDE8CD001478BB522185D36CB84FBEE900FF6DFF68096156F5&response_type=code&redirect_uri=http://localhost&scope=IdentifyAppliance%20Oven" class="button7" style="background-color:#437eee">
+        Authenticate with home connectt
+      </a> -->
+    </div>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed"
+              *ngIf="this.isAuth">
+            <i class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <p>aaa</p>
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
